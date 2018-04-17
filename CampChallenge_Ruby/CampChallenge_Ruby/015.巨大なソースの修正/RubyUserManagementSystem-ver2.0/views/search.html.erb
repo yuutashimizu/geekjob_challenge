@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>RUMSユーザー情報検索画面</title>
+    </head>
+    <body>
+         <form action="search_result" method="POST">
+        名前:
+        <input type="text" name="name">
+        <br><br>
+
+        生年:　
+        <select name="year">
+            <option value="">----</option>
+            <% for i in 1960..2010 %>
+                <option value="<%=i%>"> <%=i%> </option>
+            <% end %>
+        </select>年生まれ
+        <br><br>
+
+        種別:
+        <br>
+        <input type="radio" name="type" value="1" checked>エンジニア<br>
+        <input type="radio" name="type" value="2">営業<br>
+        <input type="radio" name="type" value="3">その他<br>
+        <br>
+
+        <input type="submit" name="btnSubmit" value="検索">
+    </form>
+    <p><a href="/">トップに戻る</a></p>
+    </body>
+</html>

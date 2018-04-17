@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>RUMSユーザー情報詳細画面</title>
+    </head>
+    <body>
+        <h1>詳細情報</h1>
+        名前:<%= @result_user["name"]%><br>
+        生年月日:<%= @result_user["birthday"]%><br>
+        種別:<%= @result_user["type"]%><br>
+        電話番号:<%= @result_user["tell"]%><br>
+        自己紹介:<%= @result_user["comment"]%><br>
+        登録日時:<%= @result_user["newDate"]%><br>
+        <form action="update" method="POST">
+        <input type="hidden" name="userID" value="<%=@result_user["userID"]%>" style="width:100px">
+        <input type="submit" name="update" value="変更"style="width:100px">
+        </form>
+        <form action="delete" method="POST">
+        <input type="submit" name="delete" value="削除"style="width:100px">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>RUMS登録確認画面</title>
+    </head>
+    <body>
+    <% if @filled_flag %>
+        <h1>登録確認</h1>
+        名前:<%= @view_params["name"]%><br>
+        生年月日:<%= @view_params["birthday"]%><br>
+        種別:<%= @view_params["type"]%><br>
+        電話番号:<%= @view_params["tell"]%><br>
+        自己紹介:<%= @view_params["comment"]%><br>
+        上記の内容で登録します。よろしいですか？
+        <form action="/insert_result" method="POST">
+            <input type="hidden" name="secret"  value="<%= @secret %>">
+            <input type="submit" name="yes" value="はい">
+        </form>
+    <% else %>
+        <h1>入力が不完全です</h1>
+        <% if @params["name"].empty?%>
+          <p>名前が未入力です</p>
+        <% end %>
+        <% if @params["year"].empty?%>
+          <p>年が未入力です</p>
+        <% end %>
+        <% if @params["month"].empty?%>
+          <p>月が未入力です</p>
+        <% end %>
+        <% if @params["day"].empty?%>
+          <p>日が未入力です</p>
+        <% end %>
+        <% if @params["tell"].empty?%>
+          <p>電話番号が未入力です</p>
+        <% end %>
+    <% end %>
+        <form action="/insert" method="POST">
+            <input type="submit" name="no" value="登録画面に戻る">
+        </form>
+        <p><a href="/">トップに戻る</a></p>
+    </body>
+</html>

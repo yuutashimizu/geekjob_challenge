@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>RUMS登録結果画面</title>
+    </head>
+    <body>
+        <h1>登録結果</h1><br>
+        名前:<%= @params["name"]%><br>
+        生年月日:<%= @params["year"]%><br>
+        種別:<%= @params["type"]%><br>
+        電話番号:<%= @params["tell"]%><br>
+        自己紹介:<%= @params["comment"]%><br>
+        以上の内容で登録しました。<br>
+        <p><a href="/">トップに戻る</a></p>
+    </body>
+</html>
